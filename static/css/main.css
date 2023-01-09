@@ -1,0 +1,14 @@
+body {
+    background-color: none;
+    
+}
+
+.intro{
+    background-color: grey;
+    color: white;
+
+}
+
+hr.new3 {
+    border-top: 1px dotted red;
+  }
