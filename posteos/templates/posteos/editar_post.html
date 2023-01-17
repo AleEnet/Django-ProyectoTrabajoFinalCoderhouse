@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .perfil-img {
+        max-width: 200px;
+        max-height: 200px;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-3 m-2">
+        <div class="card" style="width: 18rem;">
+            <a href="{% url 'home' %}" class="btn btn-warning"> <strong> Volver a principal</strong></a>
+            <img class="perfil-img my-2" src="{{request.user.userprofile.imagen.url}}" alt="Card image cap">
+            <div class="card-body justify-content-center">
+                <h5 class="card-title ">{{request.user.userprofile.nombre_usuario}}</h5>
+                <p>email: {{request.user.userprofile.email}}</p>
+                <a href="{% url 'agregar_post' %}" class="btn btn-success ">+ Post</a>
+
+            </div>
+            <a href="{% url 'mensajes_enviados' %}" class="btn btn-primary ">Mensajes</a>
+        </div>
+
+    </div>
+    <div class="col-md-8 m-2">
+        <div class="card">
+            <div class="card-body">
+
+                <form method="POST" action="" enctype="multipart/form-data">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {{form.as_p}}
+
+                        <button type="submit" class="btn btn-success m-3">Guardar cambios</button>
+                        
+                    </div>
+
+                </form>
+                
+
+
+            </div>
+        </div>
+    
+</div>
+
+
+
+{% endblock %}

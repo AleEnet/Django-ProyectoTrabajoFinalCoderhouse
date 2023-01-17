@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 my-1 d-flex align-items-stretch" id = "profile_wrapper">
+				<div class="card card-body border border-info">
+                    <img src="{% static 'image/perfil.jpeg' %}"id = "foto_perfil"  alt="">
+                    <h3> Hi! Im Alejandro</h3>
+                    <hr>
+                    <p>Phyton begginer Developer and Biologist with love for Science</p>
+                    
+                </div>
+			</div>
+
+			<div class="col-md-9 my-1 d-flex align-items-stretch" id="about_me">
+				<div class="card card-body border border-info" >
+                    <h4 class = "my-4">About me!</h4>
+                    <hr>
+                    <h5> I have two passion in my life, Science and Programming! </h5>   
+                    <p> During my master and PhD in Biological Science I learned how to apply computer science principles
+                        relating to data representation, programming and analysis appling
+                        statistical models to detect patterns and draw inferences and
+                        conclusions from data. That is why I ended learning and doing Data Science, a carrer that combine Science and computer programming! 
+                        </p>
+                    <h5> How I ended like a Phyton developer?</h5>
+                    <p> From many year I saw python just like a lenguaje applied for Data Science...
+                        but one day, I  started a course for object-oriented python programming and I discover a new world of opportunites, with Django and Python! </p>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md my-1">
+				<div class="card " id="dna">
+                    
+                    <div class="card-body" >
+                    <h5>My experience in Science!</h5>
+                    <hr>
+                    After the master degree, I started my PhD in Biological Science!
+                    I worked with plants, studing a cellular process called Autophagy. 
+                    Durign those years I learned a lot of lab techniques and also image 
+                    processing with imageJ. 
+                    My firsts steps on data cleanning and analysis where made with R and Python, ussing  several
+                    datasets of gene expression under different stress conditions!
+                    
+                    </div>       			
+				</div>
+			</div>
+        </div>
+        <div class="row">
+			<div class="col-md my-1 d-flex align-items-stretch">
+                <div class="card-group">
+                    <div class="card card-body"id="common">
+                        <h5>What I know and how I learned!</h5>
+                        <hr>
+                        <h5>Data extraction, cleanning and visualization:</h5>
+                        
+                        <li>Handling datasets with Tydiverse (R) and Pandas (Python). 
+                            Perform Data visualization with ggplot2-ggpubr (R), Matplotlib-Seaborn (Python),
+                            Tableu and Power BI. 
+                            Several Machine learning techniques for data analysis
+                        </li>
+                        <hr class="dashed-line"> 
+                        <h5>Oriented-Object Programming (OOP):</h5>
+                        <li>Experience with Django, a Python web development framework using he Model View Template (MVT) architecture.</li>
+                        
+
+                    </div>
+                </div>
+            </div>       
+                           		
+		</div>
+		
+	</div>
+
+
+</body>
+{% endblock %}
+</html>

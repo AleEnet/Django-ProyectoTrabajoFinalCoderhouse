@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content%}
+
+{% if post %}
+
+<div class="row">
+    <h3 class="text-center">Resultados de la busqueda de {{buscar}}</h3>
+    {% for post in post %}
+    <div class="col md-3 m-1 d-flex align-items-stretch">
+
+    
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{post.imagen.url}}" alt="Card image cap">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{post.titulo|truncatechars:40}}</h5>
+          
+          <p class="card-text">{{post.cuerpo|truncatechars:100}}</p>
+          <p class=""card-text>Autor: {{post.user}}</p>
+          <a href="{% url 'mostar_post' post.id %}" class="btn btn-success mt-auto">Ver!</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+{% else %}
+
+<h1> No se encontraron coincidencias para la busqueda realizada...</h1>
+
+{% endif %}
+{% endblock %}

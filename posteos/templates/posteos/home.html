@@ -4,105 +4,41 @@
 {% block content%}
 
 
-<div class="intro d-flex">
-    <img width="10%" class="card-img-left example-card-img-responsive" src="{% static 'image/Logo-mundo.png' %}" />
-    <div class="card-body">
-        <h4 class="card-title h5 h4-sm">Spotlight - Nuestra Mision:</h4>
-        <br>
-        <p class="card-text"> <strong> Quien decide que historias contar y que no?
-                La masividad en la generación de información y el bombardeo constante de noticias nos obliga
-                constantemente
-                a evaluar que es cierto y que no, y a quienes benefician.....Este blog busca generar un espacio para
-                todos aquellos eventos
-                que cotidianamente son olvidados tengan su lugar de difusión. Se parte de esta comunidad cuyo objetivo
-                es exponer la verdad y buscar justicia
-                para garantizar una informacion veraz y objetiva! </strong> </p>
-    </div>
+<div class="intro d-flex" style="background-color: #e9c46a; color :black">
+  <img width="10%" class="card-img-left example-card-img-responsive" src="{% static 'image/Logo-mundo.png' %}" />
+  <div class="card-body">
+    <h4 class="card-title h5 h4-sm">Spotlight - Nuestra Mision:</h4>
+    <br>
+    <p class="card-text"> <strong> Quien decide que historias contar y que no?
+        La masividad en la generación de información y el bombardeo constante de noticias nos obliga
+        constantemente
+        a evaluar que es cierto y que no, y a quienes benefician.....Este blog busca generar un espacio para
+        todos aquellos eventos
+        que cotidianamente son olvidados tengan su lugar de difusión. Se parte de esta comunidad cuyo objetivo
+        es exponer la verdad y buscar justicia
+        para garantizar una informacion veraz y objetiva! </strong> </p>
+  </div>
 
 </div>
 <hr>
 <div class="row">
-    <h3 class = "text-center">Ultimas publicaciones!</h3>
-    <div class = "col md-3 m-1">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+  <h3 class="text-center">Ultimas publicaciones!</h3>
+  {% for post in posts %}
+  <div class="col md-3 m-1 d-flex align-items-stretch">
+
+    
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{post.imagen.url}}" alt="Card image cap">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{post.titulo|truncatechars:40}}</h5>
+        
+        <p class="card-text">{{post.cuerpo|truncatechars:100}}</p>
+        <p class=""card-text>Autor: {{post.user}}</p>
+        <a href="{% url 'mostar_post' post.id %}" class="btn btn-success mt-auto">Ver!</a>
+      </div>
     </div>
-    <div class = "col md-3 m-1">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-    </div>
-    <div class = "col md-3 m-1">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-    </div>
-    <div class = "col md-3 m-1">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-    </div>
-    <div class = "col md-3 m-1">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-    </div>
-    <div class = "col md-3 m-1">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-    </div>
-    <div class = "col md-3 m-1">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-    </div>
-    <div class = "col md-3 m-1">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-    </div>
+  </div>
+  {% endfor %}
 
 </div>
 
@@ -110,47 +46,60 @@
 
 <hr>
 
+<footer class="text-center text-white" style="background-color: #2a9d8f;" >
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+   
+    <!-- Section: Social media -->
 
-<div class="row d-flex">
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Gracias por leernos! </strong>
+            </p>
+          </div>
+          <!--Grid column-->
 
-    <div class="col md-4 m-1" >
-        <div class="card flex-row" style="height: 200px;"><img class="card-img-left example-card-img-responsive"
-                src="{% static 'image/periodico.png' %}" />
-            <div class="card-body">
-                <h4 class="card-title h5 h4-sm">Tu noticia!</h4>
-                <p class="card-text">Comparte eso que sabes y muchos no quieren que se sepa!</p>
-                <a href="" class="btn btn-success"> Publicar!</a>
-            </div>
+          <!--Grid column-->
+         
+          <!--Grid column-->
         </div>
-    </div>
-    <div class="col md-4 m-1">
-        <div class="card flex-row"style="height: 200px;"><img class="card-img-left example-card-img-responsive"
-                src="{% static 'image/comunidad.png' %}" />
-            <div class="card-body">
-                <h4 class="card-title h5 h4-sm">Nuesta comunidad!</h4>
-                <p class="card-text">Conoce a los usuarios del blog....</p>
-                <a href="" class="btn btn-success"> Ir!</a>
-            </div>
-        </div>
-    </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
 
-    <div class="col md-4 m-1">
-        <div class="card flex-row"><img class="card-img-left example-card-img-responsive"
-                src="{% static 'image/lupa.png' %}" />
-            <div class="card-body">
-                <h4 class="card-title h5 h4-sm">Encuentra!</h4>
-                <p class="card-text">Sobre que quieres saber mas...</p>
-                <form class="form-inline d-flex m-1">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <br>
-                    <button class="btn btn-success  my-sm-0" type="submit">Buscar!</button>
-                </form>
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        Para mas información, siguenos en nuestras redes sociales <img width="3%" src="{% static 'image/github.png'  %}" alt="">
+        <img width="3%" src="{% static 'image/facebook.png'  %}" alt="">
+        <img width="3%" src="{% static 'image/instagram.png'  %}" alt="">
+      </p>
+    </section>
+    <!-- Section: Text -->
 
-            </div>
-        </div>
-    </div>
-
+    <!-- Section: Links -->
     
-    </div>
-</div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 CoderHouse
+    
+  </div>
+  <!-- Copyright -->
+</footer>
+
 {% endblock %}
+

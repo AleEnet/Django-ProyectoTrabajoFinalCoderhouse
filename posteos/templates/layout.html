@@ -22,56 +22,73 @@
     <title>Django Porfolio</title>
 </head>
 
-<body>
+<style>
+    .saludo-msg{
+        color: white;
+        font-size: 18px;
 
-    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark ml-1">
+    }
+</style>
 
-        <img width="10%" src="{% static 'image/navbar_logo.png' %}" alt="">
-        <a class="navbar-brand" href="#"><strong>BLOG-SPOTLIGHT</strong></a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="">  </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"data-bs-toggle="dropdown">
-                        <strong> TEMAS </strong>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Tema 1 </a>
-                        <a class="dropdown-item" href="#">Tema 2</a>
-                        <a class="dropdown-item" href="#">Tema 3</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Todos</a>
-                    </div>
 
-                </li>
-                <li>
-                    <a class="nav-link" href=""> <strong>ACERCA DE MI!</strong> </a>
-                </li>
+<nav class="navbar navbar-expand-lg navbar-dark  bg-dark ">
 
-            </ul>
-            
-        </div>
+    <img width="10%" src="{% static 'image/navbar_logo.png' %}" alt="">
+    <a class="navbar-brand" href="{% url 'home' %}"><strong>BLOG-SPOTLIGHT</strong></a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="">  </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="{% url 'acercademi' %}"> <strong>ACERCA DE MI!</strong> </a>
+            </li>
+
+        </ul>
         
-        <div>
-            <ul class="navbar-nav ml-auto my-1">
-                
+    </div>
+    
+    <div>
+        <ul class="navbar-nav ml-auto my-1">
+            
+            {% if user.is_authenticated %}
 
+            <li class ="saludo-msg m-2">Hola, {{request.user}}</li>
+                <a href="{% url 'perfil_usuario' %}" class="btn btn-info m-1">Perfil</a>
+
+            <li>
+                <a href="{% url 'logout' %}" class="btn btn-warning m-1 "> Log out</a>
+            </li>
+
+            {% else %}
+
+            <li>
+                <a href="{% url 'register' %}" class="btn btn-success m-1">Registrarse!</a>
+            </li>
+            <li>
+                <a href="{% url 'login' %}" class="btn btn-warning m-1 "> Log in</a>
+            </li>
+
+            {% endif %}
+            <form class="d-flex" action="{% url 'busqueda_post' %}" method="POST" >
+                {% csrf_token %}
                 <li>
-                    <a href="{% url 'register' %}" class="btn btn-success m-1">Registrarse!</a>
+                    <input class="form-control m-1" type="search" placeholder=" Buscar posts..." aria-label="Search" name = "busqueda">
+                    
                 </li>
                 <li>
-                    <a href="{% url 'login' %}" class="btn btn-warning m-1 "> Log in</a>
+                    <button class="btn btn-secondary m-1" type="submit">Buscar</button>
                 </li>
-               
-
-            </ul>
-        </div>
-    </nav>
-
+            </form>
+            
+        </ul>
+        
+    </div>
+</nav>
+<body>
     {% block content%}
     {% endblock %}
 
